@@ -1,0 +1,27 @@
+<resources>
+
+    <!-- screen title-->
+    <string name="movie_list">Movie List</string>
+    <string name="movie_detail">Movie Detail</string>
+
+
+    <!-- error msgs -->
+    <string name="error_no_internet">Please connect to the internet</string>
+    <string name="error_fetching_data">Error while fetching data. Please try again</string>
+
+    <string name="app_name">MovieOcean</string>
+
+    <string name="hint_movie_name">Moview Name</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_high_rate">Highest Rated</string>
+    <string name="action_most_popluar">Popular</string>
+
+    <!-- movie listing -->
+    <string name="no_movies_found">No Movies found. Please check later for more updates</string>
+
+    <!-- movie detail -->
+    <string name="user_rating">User Rating :</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="release_date">Release Date :</string>
+</resources>

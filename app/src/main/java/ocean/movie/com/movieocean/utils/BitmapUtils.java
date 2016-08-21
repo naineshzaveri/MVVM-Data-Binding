@@ -8,9 +8,9 @@ public class BitmapUtils {
 
     public static void setUrlImageUsingPicasso(android.content.Context context, String imagePath, android.widget.ImageView imageView, final android.widget.ProgressBar progressBar) {
         progressBar.setVisibility(android.view.View.VISIBLE);
-        String imageUrl = ocean.movie.com.movieocean.helper.WebHelper.RequestUrl.IMAGE_URL + imagePath;
+
         try {
-            com.squareup.picasso.Picasso.with(context).load(imageUrl).error(android.R.drawable.stat_notify_error).into(imageView, new com.squareup.picasso.Callback() {
+            com.squareup.picasso.Picasso.with(context).load(imagePath).error(android.R.drawable.stat_notify_error).into(imageView, new com.squareup.picasso.Callback() {
                 @Override
                 public void onSuccess() {
                     progressBar.setVisibility(android.view.View.GONE);
@@ -27,8 +27,8 @@ public class BitmapUtils {
     }
 
     public static void setMovieThumbail(final android.content.Context context, String imagePath, final android.widget.ImageView imageView){
-        String imageUrl = ocean.movie.com.movieocean.helper.WebHelper.RequestUrl.IMAGE_URL+imagePath;
-        com.squareup.picasso.Picasso.with(context).load(imageUrl).into(new com.squareup.picasso.Target(){
+
+        com.squareup.picasso.Picasso.with(context).load(imagePath).into(new com.squareup.picasso.Target(){
 
             @android.annotation.TargetApi(android.os.Build.VERSION_CODES.JELLY_BEAN)
             @Override

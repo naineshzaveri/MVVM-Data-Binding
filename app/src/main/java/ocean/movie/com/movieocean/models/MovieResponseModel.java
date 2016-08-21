@@ -4,23 +4,14 @@ package ocean.movie.com.movieocean.models;
  */
 public class MovieResponseModel {
 
-    private int page;
-    private java.util.ArrayList<MovieModel> results;
 
+    private java.util.ArrayList<MovieModel> movies;
 
-    public int getPage() {
-        return page;
+    public java.util.ArrayList<MovieModel> getMovies() {
+        return movies;
     }
 
-    public void setPage(int page) {
-        this.page = page;
-    }
-
-    public java.util.ArrayList<MovieModel> getResults() {
-        return results;
-    }
-
-    public void setResults(java.util.ArrayList<MovieModel> results) {
-        this.results = results;
+    public void setMovies(java.util.ArrayList<MovieModel> movies) {
+        this.movies = movies;
     }
 }

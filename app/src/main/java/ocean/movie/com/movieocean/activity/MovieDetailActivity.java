@@ -21,10 +21,10 @@ private ocean.movie.com.movieocean.models.MovieModel movieModel;
     private void setMovieData(){
 
         if(movieModel != null){
-            ((android.widget.TextView)findViewById(ocean.movie.com.movieocean.R.id.txtReleaseDate)).setText(ocean.movie.com.movieocean.utils.Utility.convertDatFormat(movieModel.getRelease_date(), ocean.movie.com.movieocean.utils.Utility.YYYY_MM_DD_FORMAT, ocean.movie.com.movieocean.utils.Utility.APP_DATE_FORMAT));
-            ((android.widget.TextView)findViewById(ocean.movie.com.movieocean.R.id.txtUserRatings)).setText(""+movieModel.getPopularity());
-            ((android.widget.TextView)findViewById(ocean.movie.com.movieocean.R.id.txtSynopsis)).setText(""+movieModel.getOverview());
-            ocean.movie.com.movieocean.utils.BitmapUtils.setMovieThumbail(this, movieModel.getPoster_path(), (android.widget.ImageView) findViewById(ocean.movie.com.movieocean.R.id.ivMovieImage));
+            ((android.widget.TextView)findViewById(ocean.movie.com.movieocean.R.id.txtReleaseDate)).setText(movieModel.getRelease_dates().getTheater());
+            ((android.widget.TextView)findViewById(ocean.movie.com.movieocean.R.id.txtUserRatings)).setText(""+movieModel.getRatings().getAudience_rating());
+            ((android.widget.TextView)findViewById(ocean.movie.com.movieocean.R.id.txtSynopsis)).setText("" + movieModel.getSynopsis());
+            ocean.movie.com.movieocean.utils.BitmapUtils.setMovieThumbail(this, movieModel.getPosters().getDetailed(), (android.widget.ImageView) findViewById(ocean.movie.com.movieocean.R.id.ivMovieImage));
         }
     }
 }

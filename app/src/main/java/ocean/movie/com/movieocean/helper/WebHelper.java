@@ -9,25 +9,14 @@ public interface WebHelper {
 
     public interface RequestUrl {
 
-        String BASE_URL = "http://private-a5ac3-themoviedb.apiary-proxy.com/3/";
-        String IMAGE_URL = "http://image.tmdb.org/t/p/w500/";
-        String MOVIE_LIST = BASE_URL + "discover/movie?";
+        String BASE_URL = "http://api.rottentomatoes.com/api/public/v1.0/";
+        String MOVIE_LIST = BASE_URL + "lists/movies/box_office.json?";
     }
 
     /**
      * Web-service Params fields
      */
     public interface Params {
-        String API_KEY = "api_key";
-    }
-
-    public interface HeaderParams {
-        String ACCEPT = "accept";
-        String SORT_BY = "sort_by";
-    }
-    public interface  PARAMS_VALUE{
-        String SORT_BY_POPULARITY = "popularity.desc";
-        String SORT_BY_HIGEST_RATING = "vote_count.desc";
-
+        String API_KEY = "apikey";
     }
 }

@@ -19,7 +19,7 @@ public class MovieManager implements com.android.volley.Response.Listener, com.a
     public void onResponse(Object o) {
         com.google.gson.Gson gson = new com.google.gson.Gson();
         if(movieValueListener != null){
-            movieValueListener.onReturnMovieList(gson.fromJson(o.toString(), ocean.movie.com.movieocean.models.MovieResponseModel.class).getResults());
+            movieValueListener.onReturnMovieList(gson.fromJson(o.toString(), ocean.movie.com.movieocean.models.MovieResponseModel.class).getMovies());
         }
     }
 
@@ -55,30 +55,4 @@ public class MovieManager implements com.android.volley.Response.Listener, com.a
         // Adding request to request queue
         ocean.movie.com.movieocean.MovieOcean.getInstance().addToRequestQueue(strReq, TAG);
     }
-
-    public void getHighestRatedMovies(final MovieValueListener movieValueListener) {
-
-        this.movieValueListener = movieValueListener;
-        final String MOVIEW_URL = ocean.movie.com.movieocean.helper.WebHelper.RequestUrl.MOVIE_LIST + ocean.movie.com.movieocean.helper.WebHelper.Params.API_KEY + "=" + ocean.movie.com.movieocean.helper.WebHelper.API_KEY +
-                "&"+ ocean.movie.com.movieocean.helper.WebHelper.HeaderParams.SORT_BY + "="+ocean.movie.com.movieocean.helper.WebHelper.PARAMS_VALUE.SORT_BY_HIGEST_RATING;
-
-        com.android.volley.toolbox.StringRequest strReq = new com.android.volley.toolbox.StringRequest(com.android.volley.Request.Method.GET,
-                MOVIEW_URL, this,this);
-        // Adding request to request queue
-        ocean.movie.com.movieocean.MovieOcean.getInstance().addToRequestQueue(strReq, TAG);
-    }
-
-
-    public void getMostPopularMovies(final MovieValueListener movieValueListener) {
-
-        this.movieValueListener = movieValueListener;
-        final String MOVIEW_URL = ocean.movie.com.movieocean.helper.WebHelper.RequestUrl.MOVIE_LIST + ocean.movie.com.movieocean.helper.WebHelper.Params.API_KEY + "=" + ocean.movie.com.movieocean.helper.WebHelper.API_KEY +
-                "&"+ ocean.movie.com.movieocean.helper.WebHelper.HeaderParams.SORT_BY + "="+ocean.movie.com.movieocean.helper.WebHelper.PARAMS_VALUE.SORT_BY_POPULARITY;
-
-        com.android.volley.toolbox.StringRequest strReq = new com.android.volley.toolbox.StringRequest(com.android.volley.Request.Method.GET,
-                MOVIEW_URL, this,this);
-        // Adding request to request queue
-        ocean.movie.com.movieocean.MovieOcean.getInstance().addToRequestQueue(strReq, TAG);
-    }
-
 }

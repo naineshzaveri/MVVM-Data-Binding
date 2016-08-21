@@ -11,11 +11,12 @@
 
     <string name="app_name">MovieOcean</string>
 
-    <string name="hint_movie_name">Moview Name</string>
+    <string name="hint_movie_name">Movie Name</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_high_rate">Highest Rated</string>
     <string name="action_most_popluar">Popular</string>
+
 
     <!-- movie listing -->
     <string name="no_movies_found">No Movies found. Please check later for more updates</string>

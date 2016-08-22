@@ -3,18 +3,22 @@ package ocean.movie.com.movieocean.models;
 /**
  * Created by naineshzaveri on 23/07/16.
  */
-public class MovieModel implements java.io.Serializable{
+public class MovieModel extends android.databinding.BaseObservable implements java.io.Serializable{
 
     private String id;
     private String title;
     private int year;
     private String mpaa_rating;
     private int runtime;
+
     private ReleaseDate release_dates;
     private Ratings ratings;
     private String synopsis;
     private Posters posters;
 
+    MovieModel(){
+
+    }
 
     public String getId() {
         return id;
@@ -24,22 +28,27 @@ public class MovieModel implements java.io.Serializable{
         this.id = id;
     }
 
+    @android.databinding.Bindable
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+        notifyPropertyChanged(ocean.movie.com.movieocean.BR.title);
     }
 
+    @android.databinding.Bindable
     public int getYear() {
         return year;
     }
 
     public void setYear(int year) {
         this.year = year;
+        notifyPropertyChanged(ocean.movie.com.movieocean.BR.year);
     }
 
+    @android.databinding.Bindable
     public String getMpaa_rating() {
         return mpaa_rating;
     }
@@ -48,6 +57,7 @@ public class MovieModel implements java.io.Serializable{
         this.mpaa_rating = mpaa_rating;
     }
 
+    @android.databinding.Bindable
     public int getRuntime() {
         return runtime;
     }
@@ -56,12 +66,15 @@ public class MovieModel implements java.io.Serializable{
         this.runtime = runtime;
     }
 
+
     public ocean.movie.com.movieocean.models.MovieModel.ReleaseDate getRelease_dates() {
         return release_dates;
     }
 
     public void setRelease_dates(ocean.movie.com.movieocean.models.MovieModel.ReleaseDate release_dates) {
         this.release_dates = release_dates;
+
+
     }
 
     public ocean.movie.com.movieocean.models.MovieModel.Ratings getRatings() {
@@ -88,10 +101,9 @@ public class MovieModel implements java.io.Serializable{
         this.posters = posters;
     }
 
-    public class ReleaseDate implements java.io.Serializable{
+    public class ReleaseDate extends android.databinding.BaseObservable{
 
-        String theater;
-
+        private String theater;
         public String getTheater() {
             return ocean.movie.com.movieocean.utils.Utility.convertDatFormat(this.theater, ocean.movie.com.movieocean.utils.Utility.YYYY_MM_DD_FORMAT, ocean.movie.com.movieocean.utils.Utility.APP_DATE_FORMAT);
         }

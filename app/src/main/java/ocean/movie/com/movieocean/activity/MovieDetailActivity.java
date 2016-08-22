@@ -4,6 +4,7 @@ package ocean.movie.com.movieocean.activity;
  */
 public class MovieDetailActivity extends ocean.movie.com.movieocean.base.BaseActivity {
 private ocean.movie.com.movieocean.models.MovieModel movieModel;
+
     @Override
     protected void onCreate(android.os.Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

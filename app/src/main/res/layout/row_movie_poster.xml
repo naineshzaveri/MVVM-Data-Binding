@@ -6,9 +6,12 @@
     <data>
 
         <variable
+            name="releaseDate"
+            type="ocean.movie.com.movieocean.models.MovieModel.ReleaseDate"/>
+        <variable
             name="movieData"
             type="ocean.movie.com.movieocean.models.MovieModel"/>
-        <variable name="ratings" type="ocean.movie.com.movieocean.models.MovieModel."/>
+
     </data>
 
     <android.support.v7.widget.CardView
@@ -83,7 +86,7 @@
                         android:id="@+id/txtReleaseDate"
                         style="@style/textview_details"
                         android:layout_width="0dp"
-                        android:text="@{movieData.$Listener.theater}"
+                        android:text="@{releaseDate.theater}"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
                 </LinearLayout>

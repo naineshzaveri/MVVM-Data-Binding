@@ -66,15 +66,14 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
         this.runtime = runtime;
     }
 
-
+    @android.databinding.Bindable
     public ocean.movie.com.movieocean.models.MovieModel.ReleaseDate getRelease_dates() {
         return release_dates;
     }
 
     public void setRelease_dates(ocean.movie.com.movieocean.models.MovieModel.ReleaseDate release_dates) {
         this.release_dates = release_dates;
-
-
+        notifyPropertyChanged(ocean.movie.com.movieocean.BR.release_dates);
     }
 
     public ocean.movie.com.movieocean.models.MovieModel.Ratings getRatings() {
@@ -101,15 +100,20 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
         this.posters = posters;
     }
 
-    public class ReleaseDate extends android.databinding.BaseObservable{
+    public class ReleaseDate {
 
         private String theater;
+
         public String getTheater() {
             return ocean.movie.com.movieocean.utils.Utility.convertDatFormat(this.theater, ocean.movie.com.movieocean.utils.Utility.YYYY_MM_DD_FORMAT, ocean.movie.com.movieocean.utils.Utility.APP_DATE_FORMAT);
         }
-
         public void setTheater(String theater) {
             this.theater = theater;
+        }
+
+        @Override
+        public String toString() {
+            return this.theater;
         }
     }
 

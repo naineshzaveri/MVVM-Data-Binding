@@ -35,7 +35,7 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
 
     public void setTitle(String title) {
         this.title = title;
-        notifyPropertyChanged(ocean.movie.com.movieocean.BR.title);
+        notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.title);
     }
 
     @android.databinding.Bindable
@@ -45,7 +45,7 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
 
     public void setYear(int year) {
         this.year = year;
-        notifyPropertyChanged(ocean.movie.com.movieocean.BR.year);
+        notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.year);
     }
 
     @android.databinding.Bindable
@@ -66,21 +66,24 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
         this.runtime = runtime;
     }
 
-
+    @android.databinding.Bindable
     public ocean.movie.com.movieocean.models.MovieModel.ReleaseDate getRelease_dates() {
         return release_dates;
     }
 
     public void setRelease_dates(ocean.movie.com.movieocean.models.MovieModel.ReleaseDate release_dates) {
         this.release_dates = release_dates;
+        notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.release_dates);
     }
 
+    @android.databinding.Bindable
     public ocean.movie.com.movieocean.models.MovieModel.Ratings getRatings() {
         return ratings;
     }
 
     public void setRatings(ocean.movie.com.movieocean.models.MovieModel.Ratings ratings) {
         this.ratings = ratings;
+        notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.ratings);
     }
 
     public String getSynopsis() {
@@ -91,63 +94,83 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
         this.synopsis = synopsis;
     }
 
+    @android.databinding.Bindable
     public ocean.movie.com.movieocean.models.MovieModel.Posters getPosters() {
         return posters;
     }
 
     public void setPosters(ocean.movie.com.movieocean.models.MovieModel.Posters posters) {
         this.posters = posters;
+        notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.posters);
     }
 
-    public class ReleaseDate extends android.databinding.BaseObservable{
-        @android.databinding.Bindable
+    public class ReleaseDate extends android.databinding.BaseObservable implements java.io.Serializable{
+
+        ReleaseDate(){
+
+        }
+
         private String theater;
 
+        @android.databinding.Bindable
         public String getTheater() {
-            return ocean.movie.com.movieocean.utils.Utility.convertDatFormat(this.theater, ocean.movie.com.movieocean.utils.Utility.YYYY_MM_DD_FORMAT, ocean.movie.com.movieocean.utils.Utility.APP_DATE_FORMAT);
+            return  ocean.movie.com.movieocean.utils.Utility.convertDatFormat(this.theater, ocean.movie.com.movieocean.utils.Utility.YYYY_MM_DD_FORMAT, ocean.movie.com.movieocean.utils.Utility.APP_DATE_FORMAT);
         }
         public void setTheater(String theater) {
             this.theater = theater;
+            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.theater);
         }
     }
 
-    public class Ratings implements java.io.Serializable{
+    public class Ratings extends android.databinding.BaseObservable implements java.io.Serializable {
 
         private String critics_rating;
         private int critics_score;
         private String audience_rating;
         private int audience_score;
 
+        Ratings(){
+
+        }
+        @android.databinding.Bindable
         public String getCritics_rating() {
             return critics_rating;
         }
 
         public void setCritics_rating(String critics_rating) {
             this.critics_rating = critics_rating;
+            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.critics_rating);
         }
 
+        @android.databinding.Bindable
         public int getCritics_score() {
             return critics_score;
         }
 
         public void setCritics_score(int critics_score) {
             this.critics_score = critics_score;
+            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.critics_score);
         }
 
+        @android.databinding.Bindable
         public String getAudience_rating() {
             return audience_rating;
+
         }
 
         public void setAudience_rating(String audience_rating) {
             this.audience_rating = audience_rating;
+            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.audience_rating);
         }
 
+        @android.databinding.Bindable
         public int getAudience_score() {
             return audience_score;
         }
 
         public void setAudience_score(int audience_score) {
             this.audience_score = audience_score;
+            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.audience_score);
         }
     }
 
@@ -157,36 +180,55 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
         private String detailed;
         private String original;
 
+       Posters(){
+
+        }
+
+        @android.databinding.Bindable
         public String getThumbnail() {
             return thumbnail;
         }
 
         public void setThumbnail(String thumbnail) {
             this.thumbnail = thumbnail;
+            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.thumbnail);
+        }
+        @android.databinding.BindingAdapter({"bind:imageUrl"})
+        public static void loadImage(android.widget.ImageView view, String imageUrl) {
+            com.squareup.picasso.Picasso.with(view.getContext())
+                    .load(imageUrl)
+                    .placeholder(ocean.movie.com.movieocean.R.drawable.placeholder)
+                    .into(view);
         }
 
+        @android.databinding.Bindable
         public String getProfile() {
             return profile;
         }
 
         public void setProfile(String profile) {
             this.profile = profile;
+            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.profile);
         }
 
+        @android.databinding.Bindable
         public String getDetailed() {
             return detailed;
         }
 
         public void setDetailed(String detailed) {
             this.detailed = detailed;
+            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.detailed);
         }
 
+        @android.databinding.Bindable
         public String getOriginal() {
             return original;
         }
 
         public void setOriginal(String original) {
             this.original = original;
+            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.original);
         }
     }
 

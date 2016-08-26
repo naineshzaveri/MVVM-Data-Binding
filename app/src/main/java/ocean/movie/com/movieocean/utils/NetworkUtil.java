@@ -34,32 +34,4 @@ public class NetworkUtil {
 		}
 		return true;
 	}
-
-    public static int getConnectivityStatus(android.content.Context context) {
-        android.net.ConnectivityManager cm = (android.net.ConnectivityManager) context
-                .getSystemService(android.content.Context.CONNECTIVITY_SERVICE);
-
-        android.net.NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        if (null != activeNetwork) {
-            if(activeNetwork.getType() == android.net.ConnectivityManager.TYPE_WIFI)
-                return TYPE_WIFI;
-
-            if(activeNetwork.getType() == android.net.ConnectivityManager.TYPE_MOBILE)
-                return TYPE_MOBILE;
-        }
-        return TYPE_NOT_CONNECTED;
-    }
-
-    public static String getConnectivityStatusString(android.content.Context context) {
-        int conn = NetworkUtil.getConnectivityStatus(context);
-        String status = null;
-        if (conn == NetworkUtil.TYPE_WIFI) {
-            status = "Wifi enabled";
-        } else if (conn == NetworkUtil.TYPE_MOBILE) {
-            status = "Mobile data enabled";
-        } else if (conn == NetworkUtil.TYPE_NOT_CONNECTED) {
-            status = "Not connected to Internet";
-        }
-        return status;
-    }
 }

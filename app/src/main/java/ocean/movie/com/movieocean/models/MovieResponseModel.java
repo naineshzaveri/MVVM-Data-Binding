@@ -2,7 +2,7 @@ package ocean.movie.com.movieocean.models;
 /**
  * Created by naineshzaveri on 24/07/16.
  */
-public class MovieResponseModel {
+public class MovieResponseModel implements java.io.Serializable {
 
 
     private java.util.ArrayList<MovieModel> movies;

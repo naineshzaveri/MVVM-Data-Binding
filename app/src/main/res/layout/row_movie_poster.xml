@@ -4,10 +4,6 @@
     >
 
     <data>
-
-        <variable
-            name="releaseDate"
-            type="ocean.movie.com.movieocean.models.MovieModel.ReleaseDate"/>
         <variable
             name="movieData"
             type="ocean.movie.com.movieocean.models.MovieModel"/>
@@ -43,6 +39,7 @@
                     android:id="@+id/ivPoster"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:src="@{movieData.title}"
                     android:layout_centerInParent="true"
                     />
 
@@ -86,7 +83,7 @@
                         android:id="@+id/txtReleaseDate"
                         style="@style/textview_details"
                         android:layout_width="0dp"
-                        android:text="@{releaseDate.theater}"
+                        android:text="@{movieData.release_dates.theater}"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
                 </LinearLayout>
@@ -108,6 +105,7 @@
                         android:id="@+id/txtUserRatings"
                         style="@style/textview_details"
                         android:layout_width="0dp"
+                        android:text='@{"" + movieData.ratings.critics_score}'
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
                 </LinearLayout>

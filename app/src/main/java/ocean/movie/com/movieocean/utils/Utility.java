@@ -7,6 +7,7 @@ public class Utility {
 
     public static String YYYY_MM_DD_FORMAT = "yyyy-MM-dd";
     public static String APP_DATE_FORMAT = "dd MMM yyyy";
+   
 
     public static String convertDatFormat(String serverdate, String originalFormat, String convertedDateFormat) {
         try {
@@ -20,4 +21,5 @@ public class Utility {
            return "";
         }
     }
+
 }

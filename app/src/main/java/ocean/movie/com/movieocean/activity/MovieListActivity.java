@@ -12,7 +12,7 @@ import ocean.movie.com.movieocean.models.MovieModel;
 
 ;
 
-public class MovieListActivity extends ocean.movie.com.movieocean.base.BaseActivity implements ocean.movie.com.movieocean.MovieManager.MovieValueListener {
+public class MovieListActivity extends ocean.movie.com.movieocean.base.BaseActivity implements ocean.movie.com.movieocean.moviemanager.MovieListManager.MovieValueListener {
 
     private android.support.v7.widget.RecyclerView.Adapter mAdapter;
     private android.support.v7.widget.RecyclerView mRecyclerView;
@@ -28,7 +28,15 @@ public class MovieListActivity extends ocean.movie.com.movieocean.base.BaseActiv
 
         init();
 
-        getMovieList();
+        if(!ocean.movie.com.movieocean.utils.NetworkUtil.checkNetworkAvailable(this)){
+            showProgress(true);
+            this.modelArrayList.clear();
+            this.modelArrayList = ocean.movie.com.movieocean.moviemanager.MovieListManager.getInstance().getAllMoviesFromDb();
+            setMoviePosterAdapter();
+            showProgress(false);
+        }else{
+            getMovieList();
+        }
     }
 
     private void init() {
@@ -86,7 +94,7 @@ public class MovieListActivity extends ocean.movie.com.movieocean.base.BaseActiv
     private void getMovieList() {
         if (ocean.movie.com.movieocean.utils.NetworkUtil.checkNetworkAvailable(this)) {
             showProgress(true);
-            ocean.movie.com.movieocean.MovieManager.getInstance().getMovieList(this);
+            ocean.movie.com.movieocean.moviemanager.MovieListManager.getInstance().getMovieList(this);
 
         } else {
             showProgress(false);

@@ -174,7 +174,7 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
         }
     }
 
-    public class Posters implements java.io.Serializable {
+    public class Posters extends android.databinding.BaseObservable implements java.io.Serializable {
         private String thumbnail;
         private String profile;
         private String detailed;
@@ -193,13 +193,13 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
             this.thumbnail = thumbnail;
             notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.thumbnail);
         }
-        @android.databinding.BindingAdapter({"bind:imageUrl"})
+       /* @android.databinding.BindingAdapter({"bind:imageUrl"})
         public static void loadImage(android.widget.ImageView view, String imageUrl) {
             com.squareup.picasso.Picasso.with(view.getContext())
                     .load(imageUrl)
                     .placeholder(ocean.movie.com.movieocean.R.drawable.placeholder)
                     .into(view);
-        }
+        }*/
 
         @android.databinding.Bindable
         public String getProfile() {

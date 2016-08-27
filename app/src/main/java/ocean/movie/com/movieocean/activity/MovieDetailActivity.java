@@ -22,10 +22,10 @@ private ocean.movie.com.movieocean.models.MovieModel movieModel;
     private void setMovieData(){
 
         if(movieModel != null){
-            ((android.widget.TextView)findViewById(ocean.movie.com.movieocean.R.id.txtReleaseDate)).setText(movieModel.getRelease_dates().getTheater());
-            ((android.widget.TextView)findViewById(ocean.movie.com.movieocean.R.id.txtUserRatings)).setText(""+movieModel.getRatings().getAudience_rating());
-            ((android.widget.TextView)findViewById(ocean.movie.com.movieocean.R.id.txtSynopsis)).setText("" + movieModel.getSynopsis());
-            ocean.movie.com.movieocean.utils.BitmapUtils.setMovieThumbail(this, movieModel.getPosters().getDetailed(), (android.widget.ImageView) findViewById(ocean.movie.com.movieocean.R.id.ivMovieImage));
+
+            ocean.movie.com.movieocean.databinding.ActivityMoiewdetailBinding binding =
+                    android.databinding.DataBindingUtil.setContentView(this, ocean.movie.com.movieocean.R.layout.activity_moiewdetail);
+            binding.setMovieData(movieModel);
         }
     }
 }

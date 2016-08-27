@@ -1,64 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v7.widget.CardView
-    android:id="@+id/cvMoviePoster"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:cardBackgroundColor="@android:color/white"
-    app:cardCornerRadius="4dp"
-    app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="true">
+    >
+    <data>
+        <variable
+            name="movieData"
+            type="ocean.movie.com.movieocean.models.MovieModel"/>
 
-    <ScrollView
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvMoviePoster"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="4dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <!-- header -->
-
-            <ImageView
-                android:id="@+id/ivMovieImage"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/pad_100dp"
-               />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/color_divider"/>
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <!-- header -->
+
+                <ImageView
+                    android:id="@+id/ivMovieImage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-
-                    <TextView
-                        style="@style/textview_details_header"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/release_date"
-                        />
-
-                    <TextView
-                        android:id="@+id/txtReleaseDate"
-                        style="@style/textview_details"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
-                </LinearLayout>
+                    app:imageUrl="@{movieData.posters.detailed}"
+                    android:layout_height="@dimen/pad_100dp"
+                    />
 
                 <View
                     android:layout_width="match_parent"
@@ -68,46 +47,81 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="vertical">
 
-                    <TextView
-                        style="@style/textview_details_header"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/user_rating"/>
+                        android:orientation="horizontal"
+                        >
 
-                    <TextView
-                        android:id="@+id/txtUserRatings"
-                        style="@style/textview_details"
-                        android:layout_width="0dp"
+                        <TextView
+                            style="@style/textview_details_header"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/release_date"
+                            />
+
+                        <TextView
+                            android:id="@+id/txtReleaseDate"
+                            style="@style/textview_details"
+                            android:layout_width="0dp"
+                            android:text="@{movieData.release_dates.theater}"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/color_divider"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            style="@style/textview_details_header"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/user_rating"/>
+
+                        <TextView
+                            android:id="@+id/txtUserRatings"
+                            style="@style/textview_details"
+                            android:layout_width="0dp"
+                            android:text='@{"" + movieData.ratings.critics_score}'
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/color_divider"/>
                 </LinearLayout>
 
-                <View
+                <TextView
+                    style="@style/textview_details_header"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/color_divider"/>
+                    android:layout_height="wrap_content"
+                    android:text="@string/synopsis"/>
+
+                <TextView
+                    android:id="@+id/txtSynopsis"
+                    style="@style/textview_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{movieData.synopsis}"
+                    />
+
             </LinearLayout>
 
-            <TextView
-                style="@style/textview_details_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/synopsis"/>
 
-            <TextView
-                android:id="@+id/txtSynopsis"
-                style="@style/textview_details"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="summary"
-                />
-
-        </LinearLayout>
-
-
-    </ScrollView>
-</android.support.v7.widget.CardView>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+</layout>

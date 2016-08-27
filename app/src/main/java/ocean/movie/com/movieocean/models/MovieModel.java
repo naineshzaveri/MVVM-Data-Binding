@@ -87,12 +87,14 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
         notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.ratings);
     }
 
+    @android.databinding.Bindable
     public String getSynopsis() {
         return synopsis;
     }
 
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
+        notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.synopsis);
     }
 
     @android.databinding.Bindable

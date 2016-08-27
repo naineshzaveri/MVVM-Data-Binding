@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     >
 
     <data>
@@ -39,14 +40,9 @@
                     android:id="@+id/ivPoster"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@{movieData.title}"
+                    bind:imageUrl="@{movieData.posters.thumbnail}"
                     android:layout_centerInParent="true"
                     />
-
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
             </RelativeLayout>
 
             <LinearLayout

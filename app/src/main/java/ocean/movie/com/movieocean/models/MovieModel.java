@@ -95,11 +95,11 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
     }
 
     @android.databinding.Bindable
-    public ocean.movie.com.movieocean.models.MovieModel.Posters getPosters() {
+    public Posters getPosters() {
         return posters;
     }
 
-    public void setPosters(ocean.movie.com.movieocean.models.MovieModel.Posters posters) {
+    public void setPosters(Posters posters) {
         this.posters = posters;
         notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.posters);
     }
@@ -171,64 +171,6 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
         public void setAudience_score(int audience_score) {
             this.audience_score = audience_score;
             notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.audience_score);
-        }
-    }
-
-    public class Posters extends android.databinding.BaseObservable implements java.io.Serializable {
-        private String thumbnail;
-        private String profile;
-        private String detailed;
-        private String original;
-
-       Posters(){
-
-        }
-
-        @android.databinding.Bindable
-        public String getThumbnail() {
-            return thumbnail;
-        }
-
-        public void setThumbnail(String thumbnail) {
-            this.thumbnail = thumbnail;
-            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.thumbnail);
-        }
-       /* @android.databinding.BindingAdapter({"bind:imageUrl"})
-        public static void loadImage(android.widget.ImageView view, String imageUrl) {
-            com.squareup.picasso.Picasso.with(view.getContext())
-                    .load(imageUrl)
-                    .placeholder(ocean.movie.com.movieocean.R.drawable.placeholder)
-                    .into(view);
-        }*/
-
-        @android.databinding.Bindable
-        public String getProfile() {
-            return profile;
-        }
-
-        public void setProfile(String profile) {
-            this.profile = profile;
-            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.profile);
-        }
-
-        @android.databinding.Bindable
-        public String getDetailed() {
-            return detailed;
-        }
-
-        public void setDetailed(String detailed) {
-            this.detailed = detailed;
-            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.detailed);
-        }
-
-        @android.databinding.Bindable
-        public String getOriginal() {
-            return original;
-        }
-
-        public void setOriginal(String original) {
-            this.original = original;
-            notifyPropertyChanged(com.android.databinding.library.baseAdapters.BR.original);
         }
     }
 

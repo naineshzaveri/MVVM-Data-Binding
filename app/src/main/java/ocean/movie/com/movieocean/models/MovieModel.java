@@ -20,11 +20,6 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
 
     }
 
-    public interface MovieHandler {
-
-        void onMovieClick(android.view.View view);
-    }
-
 
     public String getId() {
         return id;

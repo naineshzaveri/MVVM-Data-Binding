@@ -50,7 +50,7 @@ public class MovieListActivity extends ocean.movie.com.movieocean.base.BaseActiv
 
         if (modelArrayList != null && modelArrayList.size() > 0) {
             if (mAdapter == null) {
-                mAdapter = new ocean.movie.com.movieocean.adapters.MovieListAdapter(MovieListActivity.this, modelArrayList);
+                mAdapter = new ocean.movie.com.movieocean.adapters.MovieListAdapter(MovieListActivity.this, modelArrayList,movieClickListener);
                 mRecyclerView.setAdapter(mAdapter);
             } else {
                 mAdapter.notifyDataSetChanged();
@@ -101,4 +101,16 @@ public class MovieListActivity extends ocean.movie.com.movieocean.base.BaseActiv
             android.widget.Toast.makeText(this, getResources().getString(R.string.error_no_internet), android.widget.Toast.LENGTH_SHORT).show();
         }
     }
+
+    private android.view.View.OnClickListener movieClickListener = new android.view.View.OnClickListener() {
+        @Override
+        public void onClick(android.view.View v) {
+            final ocean.movie.com.movieocean.models.MovieModel movieModel = (MovieModel) v.getTag();
+            android.content.Intent intent = new android.content.Intent(MovieListActivity.this, ocean.movie.com.movieocean.activity.MovieDetailActivity.class);
+            android.os.Bundle bundle = new android.os.Bundle();
+            bundle.putSerializable(ocean.movie.com.movieocean.utils.BundleKeys.KEY_MOVIE, movieModel);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+    };
 }

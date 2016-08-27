@@ -20,23 +20,11 @@ public class MovieListAdapter  extends RecyclerView.Adapter<MovieListAdapter.Bin
     ArrayList<MovieModel> arrMovies;
     private Context mContext;
     private ocean.movie.com.movieocean.databinding.RowMoviePosterBinding binding;
+    private android.view.View.OnClickListener onClickListener;
 
     public static class MoviePosterViewHolder extends RecyclerView.ViewHolder {
         private android.databinding.ViewDataBinding mViewDataBinding;
-       /* public ImageView ivMoviePoster;
-        public CardView cvContent;
-        public android.widget.ProgressBar progressBar;
-        public android.widget.TextView txtMovieName, txtUserRatings, txtReleaseDate;*/
 
-       /* public MoviePosterViewHolder(android.view.View v) {
-            super(v);
-            ivMoviePoster = (ImageView) v.findViewById(R.id.ivPoster);
-            cvContent = (CardView) v.findViewById(R.id.cvMoviePoster);
-            txtMovieName = (android.widget.TextView) v.findViewById(ocean.movie.com.movieocean.R.id.txtName);
-            progressBar = (android.widget.ProgressBar) v.findViewById(ocean.movie.com.movieocean.R.id.progressBar);
-            txtReleaseDate = (android.widget.TextView) v.findViewById(ocean.movie.com.movieocean.R.id.txtReleaseDate);
-            txtUserRatings = (android.widget.TextView) v.findViewById(ocean.movie.com.movieocean.R.id.txtUserRatings);
-        }*/
         public MoviePosterViewHolder( android.databinding.ViewDataBinding viewDataBinding) {
             super(viewDataBinding.getRoot());
 
@@ -49,10 +37,11 @@ public class MovieListAdapter  extends RecyclerView.Adapter<MovieListAdapter.Bin
 
     }
 
-    public MovieListAdapter(android.content.Context context, ArrayList<MovieModel> arrMovies) {
+    public MovieListAdapter(android.content.Context context, ArrayList<MovieModel> arrMovies,android.view.View.OnClickListener onClickListener) {
         super();
         this.mContext = context;
         this.arrMovies = arrMovies;
+        this.onClickListener = onClickListener;
     }
 
    /* @Override
@@ -75,6 +64,12 @@ public class MovieListAdapter  extends RecyclerView.Adapter<MovieListAdapter.Bin
     public void onBindViewHolder(BindingHolder holder, int position) {
         ocean.movie.com.movieocean.databinding.RowMoviePosterBinding postBinding = holder.binding;
         postBinding.setMovieData(arrMovies.get(position));
+       postBinding.setVariable(com.android.databinding.library.baseAdapters.BR.click,onClickListener);
+    }
+
+    @android.databinding.BindingAdapter("specialTag")
+    public static void setSpecialTag(android.view.View view, Object value) {
+        view.setTag(value);
     }
 
     @Override
@@ -121,6 +116,7 @@ public class MovieListAdapter  extends RecyclerView.Adapter<MovieListAdapter.Bin
         public BindingHolder(ocean.movie.com.movieocean.databinding.RowMoviePosterBinding binding) {
             super(binding.cvMoviePoster);
             this.binding = binding;
+
         }
     }
 }

@@ -16,6 +16,11 @@ public class MovieModel extends android.databinding.BaseObservable implements ja
     private String synopsis;
     private Posters posters;
 
+    public interface MovieListener {
+        void onCarouselClick(android.view.View view);
+    }
+
+
     MovieModel(){
 
     }

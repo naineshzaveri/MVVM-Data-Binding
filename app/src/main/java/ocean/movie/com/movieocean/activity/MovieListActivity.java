@@ -105,12 +105,28 @@ public class MovieListActivity extends ocean.movie.com.movieocean.base.BaseActiv
     private android.view.View.OnClickListener movieClickListener = new android.view.View.OnClickListener() {
         @Override
         public void onClick(android.view.View v) {
-            final ocean.movie.com.movieocean.models.MovieModel movieModel = (MovieModel) v.getTag();
-            android.content.Intent intent = new android.content.Intent(MovieListActivity.this, ocean.movie.com.movieocean.activity.MovieDetailActivity.class);
-            android.os.Bundle bundle = new android.os.Bundle();
-            bundle.putSerializable(ocean.movie.com.movieocean.utils.BundleKeys.KEY_MOVIE, movieModel);
-            intent.putExtras(bundle);
-            startActivity(intent);
+
+            switch (v.getId()){
+                case R.id.cvMoviePoster:
+                    ocean.movie.com.movieocean.models.MovieModel movieModel = (MovieModel) v.getTag();
+                    android.content.Intent intent = new android.content.Intent(MovieListActivity.this, ocean.movie.com.movieocean.activity.MovieDetailActivity.class);
+                    android.os.Bundle bundle = new android.os.Bundle();
+                    bundle.putSerializable(ocean.movie.com.movieocean.utils.BundleKeys.KEY_MOVIE, movieModel);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    break;
+                case R.id.ivPoster:
+                    ocean.movie.com.movieocean.models.MovieModel movieModelPoster = (MovieModel) v.getTag();
+                    android.content.Intent imageViewintent = new android.content.Intent(MovieListActivity.this, ocean.movie.com.movieocean.activity.CarouselActivity.class);
+                    android.os.Bundle imageViewBundle = new android.os.Bundle();
+                    imageViewBundle.putSerializable(ocean.movie.com.movieocean.utils.BundleKeys.KEY_MOVIE, movieModelPoster);
+                    imageViewintent.putExtras(imageViewBundle);
+                    startActivity(imageViewintent);
+                    break;
+
+            }
+
+
         }
     };
 }

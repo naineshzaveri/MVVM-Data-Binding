@@ -5,8 +5,11 @@
     >
 
     <data>
+
         <import type="android.view.View"/>
+
         <import type="android.text.TextUtils"/>
+
         <variable
             name="click"
             type="View.OnClickListener"/>
@@ -22,11 +25,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{click}"
-        bind:specialTag="@{movieData}"
         bind:cardBackgroundColor="@android:color/white"
         bind:cardCornerRadius="4dp"
         bind:cardPreventCornerOverlap="false"
-        bind:cardUseCompatPadding="true">
+        bind:cardUseCompatPadding="true"
+        bind:specialTag="@{movieData}">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -44,9 +47,11 @@
 
                 <ImageView
                     android:id="@+id/ivPoster"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/pad_50dp"
+                    android:layout_height="@dimen/pad_50dp"
                     android:layout_centerInParent="true"
+                    android:onClick="@{click}"
+                    bind:specialTag="@{movieData}"
                     bind:imageUrl="@{movieData.posters.thumbnail}"
                     />
             </RelativeLayout>
